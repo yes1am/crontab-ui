@@ -12,7 +12,7 @@ fork from：https://github.com/alseambusher/crontab-ui
 
 启动项目并自动保存定时任务:
 
-`pm2 start app.js <账号> <密码> --autosave`
+`pm2 start app.js -- <账号> <密码> --autosave`
 
 或:
 
