@@ -24,7 +24,7 @@ var exec = require('child_process').exec;
 var fs = require('fs');
 var cron_parser = require("cron-parser");
 var cronstrue = require('cronstrue/i18n');
-var humanCronLocate = process.env.HUMANCRON ?? "en"
+var humanCronLocate = process.env.HUMANCRON || "en"
 
 
 crontab = function(name, command, schedule, stopped, logging, mailing){

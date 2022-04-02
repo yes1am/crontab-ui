@@ -16,8 +16,8 @@ var base_url = require("./routes").base_url
 app.locals.baseURL = base_url
 
 // basic auth
-var BASIC_AUTH_USER = process.env.BASIC_AUTH_USER;
-var BASIC_AUTH_PWD = process.env.BASIC_AUTH_PWD;
+var BASIC_AUTH_USER = process.env.BASIC_AUTH_USER || process.argv[2];
+var BASIC_AUTH_PWD = process.env.BASIC_AUTH_PWD || process.argv[3];
 
 if (BASIC_AUTH_USER && BASIC_AUTH_PWD) {
     app.use(function(req, res, next) {
@@ -57,6 +57,7 @@ app.set('views', __dirname + '/views');
 app.set('host', (process.env.HOST || '127.0.0.1'));
 
 // set port to 8000 or the value set by environment var PORT
+console.log(process.env.PORT || 8000, "##")
 app.set('port', (process.env.PORT || 8000));
 
 // root page handler
@@ -248,6 +249,7 @@ app.listen(app.get('port'), app.get('host'), function() {
   });
   // If --autosave is used then we will also save whatever is in the db automatically without having to mention it explictly
   // we do this by watching log file and setting a on change hook to it
+	// 
   if (process.argv.includes("--autosave")){
     crontab.autosave_crontab(()=>{});
     fs.watchFile(crontab.crontab_db_file, () => {
