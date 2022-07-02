@@ -12,13 +12,13 @@ fork from：https://github.com/alseambusher/crontab-ui
 
 启动项目并自动保存定时任务:
 
-`pm2 start app.js -- <账号> <密码> --autosave`
+`pm2 start app.js -- <账号> <密码>`
 
 或:
 
-`node app.js <账号> <密码> --autosave`
+`node app.js <账号> <密码>`
 
 
 如:
 
-`node app.js user1 pass1 --autosave`
+`node app.js user1 pass1`
